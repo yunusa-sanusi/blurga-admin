@@ -36,6 +36,12 @@ export const createUserDocument = async (userAuthData) => {
   return userDocRef;
 };
 
+export const getUserDocument = async (uid) => {
+  const userDocRef = doc(db, 'users', uid);
+  const userSnapshot = await getDoc(userDocRef);
+  return userSnapshot.data();
+};
+
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   return await createUserWithEmailAndPassword(auth, email, password);
 };
