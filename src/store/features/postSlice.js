@@ -2,20 +2,20 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   posts: {},
-  categories: {},
+  postImage: '',
 };
 
 const postSlice = createSlice({
   name: 'post',
   initialState,
   reducers: {
-    getCategories: (state, action) => {
-      state.categories = action.payload;
+    getPostImage: (state, action) => {
+      state.postImage = action.payload;
     },
   },
 });
 
-export const { getCategories } = postSlice.actions;
+export const { getPostImage } = postSlice.actions;
 
 export const postSelector = (store) => store.post;
 

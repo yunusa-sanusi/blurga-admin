@@ -48,7 +48,7 @@ const Sidebar = () => {
         />
 
         <SidebarLink
-          path="/create"
+          path="/create-post"
           text="Create Post"
           icon={<MdCreate size={20} />}
         />

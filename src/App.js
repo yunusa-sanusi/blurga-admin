@@ -20,6 +20,7 @@ import {
   getUserAuthId,
   getLoggedInUser,
 } from './store/features/userSlice';
+import { fetchCategories } from './store/features/categorySlice';
 
 function App() {
   const { userAuthId } = useSelector(getLoggedInUser);
@@ -37,19 +38,21 @@ function App() {
 
   const getLoggedInUserDocument = async () => {
     const user = await getUserDocument(userAuthId);
-    const userData = { ...user, createdAt: user.createdAt.seconds };
+    const userData = { ...user, createdAt: user?.createdAt.seconds };
     dispatch(getUser(userData));
   };
 
   useEffect(() => {
     getLoggedInUserAuth();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     getLoggedInUserDocument();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userAuthId]);
+
+  useEffect(() => {
+    dispatch(fetchCategories('random'));
+  }, []);
 
   return (
     <BrowserRouter>

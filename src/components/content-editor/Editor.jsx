@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-const Editor = () => {
-  const [value, setValue] = useState('');
-
+const Editor = ({ content, handleOnChange }) => {
   const modules = {
     toolbar: [
       [{ header: [1, 2, false] }],
@@ -37,8 +34,8 @@ const Editor = () => {
   return (
     <ReactQuill
       theme="snow"
-      value={value}
-      onChange={setValue}
+      value={content}
+      onChange={handleOnChange}
       modules={modules}
       formats={formats}
       className="w-full h-72 border-opacity-50"

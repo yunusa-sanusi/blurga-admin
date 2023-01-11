@@ -8,6 +8,7 @@ const Input = ({ type, inputId, placeholder, value, handleOnChange }) => {
       name={inputId}
       value={value}
       onChange={handleOnChange}
+      required
     />
   );
 };

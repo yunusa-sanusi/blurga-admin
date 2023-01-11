@@ -61,3 +61,8 @@ code {
 .navlink {
   height: 18px;
 }
+
+.ql-toolbar {
+  background: #fff;
+  color: #1a202c;
+}

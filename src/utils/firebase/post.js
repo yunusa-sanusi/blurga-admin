@@ -20,7 +20,10 @@ export const createPostDocument = async (postData) => {
   const postDocRef = doc(db, 'posts', postData.id);
 
   try {
-    await setDoc(postDocRef, postData);
+    await setDoc(postDocRef, {
+      ...postData,
+      createdAt: `${new Date()}`,
+    });
   } catch (error) {
     console.log(error.message);
   }

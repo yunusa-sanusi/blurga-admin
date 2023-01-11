@@ -1,25 +1,12 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import CreateCategoryForm from '../../components/forms/postForms/CreateCategoryForm';
 import Category from '../../components/post/Category';
 
-import { getCategories, postSelector } from '../../store/features/postSlice';
-import { getAllCategories } from '../../utils/firebase/post';
+import { categorySelector } from '../../store/features/categorySlice';
 
 const Categories = () => {
-  const { categories } = useSelector(postSelector);
-  const dispatch = useDispatch();
-
-  const getAllCategoryDocuments = async () => {
-    const categories = await getAllCategories();
-    dispatch(getCategories(categories));
-  };
-
-  useEffect(() => {
-    getAllCategoryDocuments();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { categories } = useSelector(categorySelector);
 
   return (
     <section className="w-full pl-6">

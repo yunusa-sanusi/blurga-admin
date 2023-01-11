@@ -22,7 +22,7 @@ const CreateCategoryForm = () => {
 
     const id = v4();
 
-    const categoryData = { id, category, createAt: new Date() };
+    const categoryData = { id, category, createdAt: new Date() };
     createCategoryDocument(categoryData);
 
     setFormFields(defaultFormFields);
